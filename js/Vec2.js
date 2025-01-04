@@ -162,5 +162,3 @@ Vec2.prototype.toString = function() {
 Vec2.prototype.hash = function() {
   return 1 * this.x + 12 * this.y;
 };
-
-export default Vec2;

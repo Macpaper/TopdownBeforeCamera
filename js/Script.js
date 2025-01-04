@@ -1,5 +1,5 @@
 import Game from "./Game.js";
-console.log("test");
+
 const canv = document.querySelector("canvas");
 const ctx = canv.getContext("2d");
 
@@ -11,12 +11,14 @@ canv.height = window.innerHeight;
 let WIDTH = canv.width;
 let HEIGHT = canv.height;
 
+let game1 = new Game(WIDTH, HEIGHT);
+
 window.addEventListener("resize", e => {
   canv.width = window.innerWidth;
   canv.height = window.innerHeight;
+  game1.gameWidth = canv.width;
+  game1.gameHeight = canv.height;
 });
-
-let game1 = new Game(WIDTH, HEIGHT);
 
 function gameLoop() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);

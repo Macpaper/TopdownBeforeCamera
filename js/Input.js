@@ -12,32 +12,15 @@ export default class Input {
     this.mouseX = 0;
     this.mouseY = 0;
 
-    this.circle = {
-      x: this.mouseX,
-      y: this.mouseY,
-      r: 150
-    }
-
-    this.rect = {
-      x: this.mouseX,
-      y: this.mouseY,
-      w: 100,
-      h: 100
-    }
+    this.initDebug();
   }
 
   update() {
-    this.circle.x = this.mouseX;
-    this.circle.y = this.mouseY;
-    this.rect.x = this.mouseX;
-    this.rect.y = this.mouseY;
+
   }
   draw(ctx) {
     ctx.fillStyle = "white";
-    // ctx.beginPath();
-    // ctx.arc(this.circle.x, this.circle.y, this.circle.r, 0, Math.PI * 2, false);
-    // ctx.fill();
-    // ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
+    // this.debug(ctx);
   }
 
   initInput() {
@@ -72,10 +55,37 @@ export default class Input {
     }
     if (key.toLowerCase() == "s") {
       this.downKey = isPressed;
+      console.log("s")
     }
+    console.log(key)
     if (key.toLowerCase() == "d") {
+      console.log("d")
       this.rightKey = isPressed;
     }
   }
+  initDebug() {
+    this.circle = {
+      x: this.mouseX,
+      y: this.mouseY,
+      r: 150
+    }
 
+    this.rect = {
+      x: this.mouseX,
+      y: this.mouseY,
+      w: 100,
+      h: 100
+    }
+  }
+  
+  debug(ctx) {
+    this.circle.x = this.mouseX;
+    this.circle.y = this.mouseY;
+    this.rect.x = this.mouseX;
+    this.rect.y = this.mouseY;
+    ctx.beginPath();
+    ctx.arc(this.circle.x, this.circle.y, this.circle.r, 0, Math.PI * 2, false);
+    ctx.fill();
+    ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
+  }
 }
